@@ -23,7 +23,7 @@ class User(AbstractUser):
         ("kako", "Kakao"),
     )
 
-    avatar = models.ImageField(blank=True)
+    avatar = models.ImageField(blank=True, upload_to="avatars")
     gender = models.CharField(max_length=50, blank=True, choices=GENDER_CHOICES)
     bio = models.TextField()
     birthdate = models.DateField(blank=True, null=True)

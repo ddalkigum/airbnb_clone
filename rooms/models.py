@@ -49,6 +49,16 @@ class HouseRule(AbstractItem):
         verbose_name = "House Rule"
 
 
+class Photo(TimeStampModel):
+
+    caption = models.CharField(max_length=80)
+    file = models.ImageField(upload_to="room_photos")
+    room = models.ForeignKey("Room", on_delete=models.CASCADE, related_name="photo")
+
+    def __str__(self):
+        return self.caption
+
+
 class Room(TimeStampModel):
 
     name = models.CharField(max_length=140)
