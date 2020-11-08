@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>home</title>
+  </head>
+  <body>
+    {% include "nav.html" %}
+    <div>{% for room in rooms %} {{room.name}} {% endfor %}</div>
+    {% if user.is_authenticated %}
+    <a href = {% url 'users:logout' %}>Logout</a>
+    {% else %}
+    <a href ={% url 'users:login' %}>Login</a>
+    {% endif %}
+    {% block content %}
+    {% endblock content %}
+  </body>
+</html>
